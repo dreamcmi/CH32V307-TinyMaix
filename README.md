@@ -1,22 +1,31 @@
-# CH32V307XX-CMake
+# CH32V307-TinyMaix
 
-摆脱eclipse编译环境，使用vscode编辑代码。
+## Port TinyMaix to CH32V307
 
-此仓库为cmake模板，请根据自己的工程进行适当修改。
+https://github.com/sipeed/TinyMaix
 
-请在CmakeLists.txt文件内更改`TOOLPATH`的变量为你的工具链路径。
+## Chip
 
-```shell
-A和B方法任选其一即可
+|Item |Parameter|
+|--   |--|
+|Chip |CH32V307|
+|Arch |RISCV32 IMAC|
+|Freq |144M |
+|Flash|480KB|
+|RAM  |128KB|
 
-A、使用cmake生成eclipse Makefile工程
-cmake -G"Eclipse CDT4 - Unix Makefiles" ..
-如果没有把make.exe加入系统path:
-cmake -G"Eclipse CDT4 - Unix Makefiles" -D"你的路径/make.exe"  ..
+## Board
+CH32V307V-R0-1v0
 
-B、使用cmake生成ninja工程
-cmake -G"Ninja" ..
-如果没有把ninja.exe加入系统path:
-cmake -G"Ninja" -D"你的路径/ninja.exe" ..
-```
+## Development Environment
+riscv-none-embed-gcc
+
+## Step/Project
+Just simple edit `tm_port.h`
+
+## Result
+|config  |mnist|cifar|mbnet96|mbnet128|Note|
+|---     |---  |---  |---    |---     |---|
+|O0 CPU  |1.23    |75.77  |*    | *        ||
+|O1 CPU  |1.14    |63.78  |*    |*     ||
 
